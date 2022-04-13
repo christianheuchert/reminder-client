@@ -23,11 +23,11 @@ const onSignIn = function (event) {
     // get data from form
     const form = event.target
     const data = getFormFields(form)
-    console.log(data)
 
     authApi
         .signIn(data)
         .then((response) => authUi.onSignInSuccess(response))
+        .then(onIndexReminders)
         .catch(() => authUi.onSignInFailure())
 }
 
@@ -38,7 +38,6 @@ const onChangePassword = function (event) {
     // get data from form
     const form = event.target
     const data = getFormFields(form)
-    console.log(data)
 
     authApi
         .changePassword(data)
@@ -54,9 +53,59 @@ const onSignOut = function () {
         .catch(() => authUi.onSignOutFailure())
 }
 
+// REMINDER FUNCTIONS -------------------------------------------------
+
+const onCreateReminder = function (event) {
+    event.preventDefault()
+    const form = event.target
+    const data = getFormFields(form)
+
+    authApi
+        .createReminder(data)
+        .then(() => authUi.onCreateReminderSuccess())
+        .then(onIndexReminders)
+        .catch(() => authUi.onCreateReminderFailure())
+}
+
+const onIndexReminders = function () {
+
+    authApi.indexReminders()
+        .then(authUi.onIndexRemindersSuccess)
+        .catch(authUi.onIndexRemindersFailure)
+}
+
+const onDeleteReminder = function(event){
+    event.preventDefault()
+    const clicked = event.target
+    const reminderId = $(clicked).data('id')
+    console.log(reminderId)
+    authApi
+        .deleteReminder(reminderId)
+        .then(authUi.onDeleteRemindersSuccess)
+        .then(onIndexReminders)
+        .catch(authUi.onDeleteRemindersFailure)
+}
+
+const onUpdateReminder = function(event){
+    event.preventDefault()
+    const clicked = event.target
+    const reminderId = $(clicked).data('id')
+    const data = getFormFields(clicked)
+
+    authApi.updateReminder(data, reminderId)
+    .then(onIndexReminders)
+
+}
+
 module.exports = {
+    //user fxns
     onSignUp,
     onSignIn,
     onChangePassword,
-    onSignOut
+    onSignOut,
+    // reminder fxns
+    onCreateReminder,
+    onIndexReminders,
+    onDeleteReminder,
+    onUpdateReminder
 }

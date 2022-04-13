@@ -15,19 +15,19 @@
       <h1>Reminder</h1>
 
         <form id="sign-in-form">
-          <input class=input name="credentials[email]" type="email" placeholder="Email">
-          <input class=input name="credentials[password]" type="password" placeholder="Enter password">
-          <button class=input type="submit">Sign In</button>
+          <input class=input name="credentials[email]" type="email" placeholder="email">
+          <input class=input name="credentials[password]" type="password" placeholder="enter password">
+          <button class=input type="submit">sign in</button>
         </form>
 
         <form id="sign-up-form">
-          <input class=input name="credentials[email]" type="email" placeholder="Email">
-          <input class=input name="credentials[password]" type="password" placeholder="Enter password">
-          <input class=input name="credentials[password_confirmation]" type="password" placeholder="Confirm password">
-          <button class=input type="submit">Sign Up</button>
+          <input class=input name="credentials[email]" type="email" placeholder="email">
+          <input class=input name="credentials[password]" type="password" placeholder="enter password">
+          <input class=input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+          <button class=input type="submit">sign up</button>
         </form>
 
-        <div style="text-align:right"><button id="sign-out-button">Sign Out</button></div>
+        <div style="text-align:right"><button id="sign-out-button">sign out</button></div>
 
         <form id="change-password-form">
           <input class=input name="password[old]" type="password" placeholder="old password">
@@ -36,6 +36,17 @@
         </form>
 
         <section id="auth-display"></section>
+
+        <form id="reminder-form">
+          <h6>enter info to create your reminder</h6>
+          <input class=input name="reminder[title]" type="text" placeholder="event">
+          <input class=input name="reminder[text]" type="text" placeholder="details ">
+          <input class=input name="reminder[date]" type="date" placeholder="Confirm password">
+          <button class=input type="submit">reminder ready</button>
+        </form>
+
+        <section id="reminder-display"></section>
+        <section id="reminders-display"></section>
 
     </body>
 </html>

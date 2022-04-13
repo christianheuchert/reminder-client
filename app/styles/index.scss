@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    background-color: #e0fbff;
+    background-color: #e6c7ba;
     margin: 10px;
     padding: 10px;
 }
@@ -16,4 +16,13 @@ body {
 h1 {
     text-align: center;
     margin: 40px auto;
+}
+
+.reminder {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.edit-reminder{
+    background-color:#e6c7ba;
 }

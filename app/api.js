@@ -3,12 +3,12 @@
 const store = require('./store')
 const config = require('./config.js')
 
+//USER FUNCTIONS --------------------------------------
 const signUp = function (data) {
     return $.ajax({
         method: 'POST',
         url: config.apiUrl + '/sign-up',
         data
-        // same as data: data
     })
 }
 
@@ -17,7 +17,6 @@ const signIn = function (data) {
         method: 'POST',
         url: config.apiUrl + '/sign-in',
         data
-        // same as data: data
     })
 }
 
@@ -29,7 +28,6 @@ const changePassword = function (data) {
             Authorization: 'Bearer ' + store.user.token
         },
         data
-        // same as data: data
     })
 }
 
@@ -43,9 +41,58 @@ const signOut = function () {
     })
 }
 
+// REMINDER FUNTIONS --------------------------------------
+const createReminder = function(data){
+    return $.ajax({
+        method: 'POST',
+        url: config.apiUrl + '/reminders',
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        },
+        data: data
+    })
+}
+
+const indexReminders = function(){
+    return $.ajax({
+        method: 'GET',
+        url: config.apiUrl + '/reminders',
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        }
+    })
+}
+
+const deleteReminder = function(reminderId){
+    return $.ajax({
+        method: 'DELETE',
+        url: config.apiUrl + '/reminders/'+reminderId,
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        }
+    })
+}
+
+const updateReminder = function(data, reminderId){
+    return $.ajax({
+        method: 'PATCH',
+        url: config.apiUrl + '/reminders/'+reminderId,
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        },
+        data:data
+    })
+}
+
 module.exports = {
+    // user fxns
     signUp,
     signIn,
     changePassword,
-    signOut
+    signOut,
+    // reminder fxns
+    createReminder,
+    indexReminders,
+    deleteReminder,
+    updateReminder
 }
