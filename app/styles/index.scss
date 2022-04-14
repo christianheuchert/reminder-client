@@ -1,9 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Smokum&display=swap');
+
+$alt-bg-color: #bac5f7;
+
+$font-family: 'Righteous',cursive;
+
+*{
+    font-family: $font-family;
+}
 
 body {
-    background-color: #e6c7ba;
+    background-color: $alt-bg-color;
     margin: 10px;
     padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 10vw;
+}
+
+h6 {
+    text-align: center;
+    margin: 40px auto;
 }
 
 .input {
@@ -11,11 +30,7 @@ body {
     text-align: center;
     width: 150px;
     margin: 8px auto;
-}
-
-h1 {
-    text-align: center;
-    margin: 40px auto;
+    font-family: $font-family;
 }
 
 .reminder {
@@ -24,5 +39,15 @@ h1 {
 }
 
 .edit-reminder{
-    background-color:#e6c7ba;
+    background-color:$alt-bg-color;
+}
+
+.home-area{
+    background-color: $alt-bg-color;
+    display: block;
+    margin: 10px;
+}
+
+#create-reminder-button{
+    background-color: #eb897a;
 }

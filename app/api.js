@@ -63,6 +63,16 @@ const indexReminders = function(){
     })
 }
 
+const showReminder = function(searchField){
+    return $.ajax({
+        method: 'GET',
+        url: config.apiUrl + '/reminders/'+searchField,
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        }
+    })
+}
+
 const deleteReminder = function(reminderId){
     return $.ajax({
         method: 'DELETE',
@@ -94,5 +104,6 @@ module.exports = {
     createReminder,
     indexReminders,
     deleteReminder,
-    updateReminder
+    updateReminder,
+    showReminder
 }

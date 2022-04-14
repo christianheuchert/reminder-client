@@ -1,4 +1,3 @@
-const store = require('./store.js')
 const getFormFields = require('../lib/get-form-fields.js')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
@@ -15,6 +14,11 @@ const onSignUp = function (event) {
     authApi.signUp(data)
         .then(() => authUi.onSignUpSuccess())
         .catch(() => authUi.onSignUpFailure())
+}
+
+const showSignUp = function(){
+    $('#sign-up-form').show()
+    $('#sign-up-button').hide()
 }
 
 const onSignIn = function (event) {
@@ -45,6 +49,11 @@ const onChangePassword = function (event) {
         .catch(() => authUi.onChangePasswordFailure())
 }
 
+const onShowChangePasswordForm = function(){
+    $('#change-password-form').show()
+    $('#change-password-button').hide()
+}
+
 const onSignOut = function () {
     console.log("onSignOut")
     authApi
@@ -67,8 +76,12 @@ const onCreateReminder = function (event) {
         .catch(() => authUi.onCreateReminderFailure())
 }
 
-const onIndexReminders = function () {
+const onShowCreateForm = function(){
+    $('#reminder-form').show()
+    $('#create-reminder-button').hide()
+}
 
+const onIndexReminders = function () {
     authApi.indexReminders()
         .then(authUi.onIndexRemindersSuccess)
         .catch(authUi.onIndexRemindersFailure)
@@ -94,6 +107,22 @@ const onUpdateReminder = function(event){
 
     authApi.updateReminder(data, reminderId)
     .then(onIndexReminders)
+    .then(authUi.onUpdateReminderSuccess)
+    .catch(authUi.onUpdateReminderFailure)
+
+}
+
+const onSearch = function(event){
+    event.preventDefault()
+    const searchField = document.getElementById("search-field").value;
+    
+
+    authApi.indexReminders()
+    .then((response) => {
+        console.log(response)
+        
+    })
+    
 
 }
 
@@ -107,5 +136,9 @@ module.exports = {
     onCreateReminder,
     onIndexReminders,
     onDeleteReminder,
-    onUpdateReminder
+    onUpdateReminder,
+    onSearch,
+    showSignUp,
+    onShowCreateForm,
+    onShowChangePasswordForm
 }

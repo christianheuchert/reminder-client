@@ -5,13 +5,17 @@ const authEvents = require('./events')
 // require('./example')
 
 $(() => {
-    $('#sign-up-form').on('submit', authEvents.onSignUp)
+    $('#sign-up-form').on('submit', authEvents.onSignUp).hide()
+    $('#sign-up-button').on('click', authEvents.showSignUp)
     $('#sign-in-form').on('submit', authEvents.onSignIn)
-    $('#change-password-form').on('submit', authEvents.onChangePassword)
-    $('#sign-out-button').on('click', authEvents.onSignOut)
-    $('#reminder-form').on('submit', authEvents.onCreateReminder)
-
+    $('#change-password-form').on('submit', authEvents.onChangePassword).hide()
+    $('#sign-out-button').on('click', authEvents.onSignOut).hide()
+//reminder event listeners
+    $('#create-reminder-button').on('click', authEvents.onShowCreateForm).hide()
+    $('#change-password-button').on('click', authEvents.onShowChangePasswordForm).hide()
+    $('#reminder-form').on('submit', authEvents.onCreateReminder).hide()
     $('#reminders-display').on('click', '.delete-reminder', authEvents.onDeleteReminder)
     $('#reminders-display').on('submit', '.update-reminder', authEvents.onUpdateReminder)
+    $('#search-button').on('click', authEvents.onSearch)
     
 })
