@@ -4,7 +4,6 @@ const authApi = require('./api.js')
 
 const onSignUp = function (event) {
     event.preventDefault()
-    console.log('onSignUp')
 
     // get data from form
     const form = event.target
@@ -23,7 +22,6 @@ const showSignUp = function(){
 
 const onSignIn = function (event) {
     event.preventDefault()
-    console.log("onSignIn")
     // get data from form
     const form = event.target
     const data = getFormFields(form)
@@ -37,7 +35,6 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
     event.preventDefault()
-    console.log("onChangePassword")
 
     // get data from form
     const form = event.target
@@ -55,7 +52,6 @@ const onShowChangePasswordForm = function(){
 }
 
 const onSignOut = function () {
-    console.log("onSignOut")
     authApi
         .signOut()
         .then(() => authUi.onSignOutSuccess())
@@ -91,7 +87,6 @@ const onDeleteReminder = function(event){
     event.preventDefault()
     const clicked = event.target
     const reminderId = $(clicked).data('id')
-    console.log(reminderId)
     authApi
         .deleteReminder(reminderId)
         .then(authUi.onDeleteRemindersSuccess)
@@ -109,21 +104,6 @@ const onUpdateReminder = function(event){
     .then(onIndexReminders)
     .then(authUi.onUpdateReminderSuccess)
     .catch(authUi.onUpdateReminderFailure)
-
-}
-
-const onSearch = function(event){
-    event.preventDefault()
-    const searchField = document.getElementById("search-field").value;
-    
-
-    authApi.indexReminders()
-    .then((response) => {
-        console.log(response)
-        
-    })
-    
-
 }
 
 module.exports = {
@@ -137,7 +117,6 @@ module.exports = {
     onIndexReminders,
     onDeleteReminder,
     onUpdateReminder,
-    onSearch,
     showSignUp,
     onShowCreateForm,
     onShowChangePasswordForm

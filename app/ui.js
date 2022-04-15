@@ -1,22 +1,24 @@
 'use strict'
-
-const events = require('./events.js')
+const events = require('./events')
 const store = require('./store.js')
 
 // USER FUNCTIONS ----------------------------------------------------
 const onSignUpSuccess = function () {
-    $('#auth-display').html('<p>sser signed up successfully</p><p>sign in to continue</p>')
+    $('#auth-display').html('<p>user signed up successfully</p><p>sign in to continue</p>')
     $('form').trigger('reset')
+    $('#sign-up-form').hide()
+    $('#sign-up-button').show()
 }
 const onSignUpFailure = function () {
     $('#auth-display').html('<p>error while signing up</p>')
 }
 
 const onSignInSuccess = function (response) {
+
     $('#auth-display').html('<p></p>')
     $('form').trigger('reset')
     store.user = response.user
-
+    
     $('#sign-up-form').hide()
     $('#sign-in-form').hide()
     $('#sign-up-button').hide()
@@ -24,11 +26,13 @@ const onSignInSuccess = function (response) {
     $('#change-password-button').show()
     $('#sign-out-button').show()
     $('#create-reminder-button').show()
-
-    // $('#change-password-form').show()
+    $('.instructions').hide()
 }
+    
 const onSignInFailure = function () {
+    $('#auth-display').show()
     $('#auth-display').html('<p>error while signing in</p>')
+    $('#auth-display').hide(2000)
 }
 
 const onChangePasswordSuccess = function () {
@@ -45,9 +49,11 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
     $('#auth-display').html('<p>user signed out successfully</p>')
+    $('#auth-display').hide(4000)
     $('form').trigger('reset')
 
     $('#sign-in-form').show()
+    $('#sign-up-button').show()
     $('#reminders-display').html("")
     $('#create-reminder-button').hide()
     $('#sign-out-button').hide()
@@ -68,7 +74,7 @@ const onCreateReminderSuccess = function () {
     $('#create-reminder-button').show()
 }
 const onCreateReminderFailure = function () {
-    $('#reminder-display').html('<p>reminder error</p>')
+    $('#reminder-display').html('<p>please edit at least one field</p><p>or date must be in the future</p>')
 }
 
 const onIndexRemindersSuccess = function (response){
@@ -116,6 +122,7 @@ const onDeleteRemindersFailure = function (){
 
 const onUpdateReminderSuccess = function (){
     $('#reminder-display').html('<p>update success</p>')
+    $('#reminder-display').hide(3000)
 }
 const onUpdateReminderFailure = function (){
     $('#reminder-display').html('<p>update error</p>')

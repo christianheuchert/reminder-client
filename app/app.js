@@ -16,6 +16,5 @@ $(() => {
     $('#reminder-form').on('submit', authEvents.onCreateReminder).hide()
     $('#reminders-display').on('click', '.delete-reminder', authEvents.onDeleteReminder)
     $('#reminders-display').on('submit', '.update-reminder', authEvents.onUpdateReminder)
-    $('#search-button').on('click', authEvents.onSearch)
     
 })

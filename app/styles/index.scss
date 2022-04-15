@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Smokum&display=swap');
 
 $alt-bg-color: #bac5f7;
-
+$coral-color: lightcoral;
 $font-family: 'Righteous',cursive;
+
 
 *{
     font-family: $font-family;
@@ -25,6 +26,10 @@ h6 {
     margin: 40px auto;
 }
 
+p{
+    text-align: center;
+}
+
 .input {
     display: block;
     text-align: center;
@@ -36,10 +41,16 @@ h6 {
 .reminder {
     text-align: center;
     margin: 30px auto;
+    background: $coral-color;
+    width: 50%;
+    padding: 10px;
+    border-radius: 16px;
 }
 
 .edit-reminder{
     background-color:$alt-bg-color;
+    border-radius: 16px;
+    opacity: .8;
 }
 
 .home-area{
@@ -48,6 +59,23 @@ h6 {
     margin: 10px;
 }
 
+
 #create-reminder-button{
-    background-color: #eb897a;
+    background-color: $coral-color;
+    border-radius: 16px;
+}
+
+#sign-in-button, #sign-up-button{
+    background-color: $coral-color;
+}
+
+@media only screen and (min-height: 400px) {
+    .instructions {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        
+    }
 }
