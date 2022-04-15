@@ -74,7 +74,7 @@ const onCreateReminderSuccess = function () {
     $('#create-reminder-button').show()
 }
 const onCreateReminderFailure = function () {
-    $('#reminder-display').html('<p>please edit at least one field</p><p>or date must be in the future</p>')
+    $('#reminder-display').html('<p>all fields required to create</p><p>or date must be a future date</p>')
 }
 
 const onIndexRemindersSuccess = function (response){
