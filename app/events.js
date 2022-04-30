@@ -8,8 +8,6 @@ const onSignUp = function (event) {
     // get data from form
     const form = event.target
     const data = getFormFields(form)
-    console.log(data)
-
     authApi.signUp(data)
         .then(() => authUi.onSignUpSuccess())
         .catch(() => authUi.onSignUpFailure())
