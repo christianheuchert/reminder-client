@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <div>
+        <button id="sign-out-button" class="home-area">sign out</button>
+        <button id=change-password-button class="home-area"> change password</button>
+      </div>
+
+      <h1>Reminder</h1>
+
+      <form id="sign-in-form">
+        <input class=input name="credentials[email]" type="email" placeholder="email">
+        <input class=input name="credentials[password]" type="password" placeholder="enter password">
+        <button id=sign-in-button class=input type="submit">sign in</button>
+      </form>
+
+      <form id="sign-up-form">
+        <input class=input name="credentials[email]" type="email" placeholder="email">
+        <input class=input name="credentials[password]" type="password" placeholder="enter password">
+        <input class=input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+        <button class=input type="submit">sign up</button>
+      </form>
+      <button id=sign-up-button class=input> or sign up</button>
+
+      <form id="change-password-form">
+        <input class=input name="password[old]" type="password" placeholder="old password">
+        <input class=input name="password[new]" type="password" placeholder="new password">
+        <button class=input type="submit">change password</button>
+      </form>
+
+      <section id="auth-display"></section>
+
+      <form id="reminder-form">
+        <h6>enter info to create your reminder</h6>
+        <input class=input name="reminder[title]" type="text" placeholder="event">
+        <input class=input name="reminder[text]" type="text" placeholder="details ">
+        <input class=input name="reminder[date]" type="date">
+        <button class=input type="submit">reminder ready</button>
+      </form>
+      <button id=create-reminder-button class=input> create reminder</button>
+
+      <section id="reminder-display"></section>
+      <section id="reminders-display"></section>
+
+      <section class="instructions" >
+          <p> reminder creates reminders connected to: title, details, and date</p>
+          <p> please sign-up, then sign-in to proceed</p>
+      </section>
+      
+
+    </body>
+</html>
