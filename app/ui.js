@@ -11,6 +11,8 @@ const onSignUpSuccess = function () {
 }
 const onSignUpFailure = function () {
     $('#auth-display').html('<p>error while signing up</p>')
+    $('#auth-display').show()
+    $('#auth-display').hide(2000)
 }
 
 const onSignInSuccess = function (response) {
@@ -30,8 +32,8 @@ const onSignInSuccess = function (response) {
 }
     
 const onSignInFailure = function () {
-    $('#auth-display').show()
     $('#auth-display').html('<p>error while signing in</p>')
+    $('#auth-display').show()
     $('#auth-display').hide(2000)
 }
 
@@ -115,6 +117,8 @@ const onShowEditForm= function(event){
 
 const onDeleteRemindersSuccess = function (response){
     $('#reminder-display').html('<p>deleted item</p>')
+    $('#reminder-display').show()
+    $('#reminder-display').hide(2000)
 }
 const onDeleteRemindersFailure = function (){
     $('#reminder-display').html('<p>deletion error</p>')
